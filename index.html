@@ -14,6 +14,31 @@ body {
   background: linear-gradient(135deg, #6a6bd4, #8a5adf);
   overflow: hidden;
 }
+/* MOBILE FIX */
+@media (max-width: 480px) {
+
+  .buttons {
+    height: 140px;
+  }
+
+  button {
+    min-width: 180px;
+    height: 52px;
+    font-size: 15px;
+  }
+
+  /* Center YES safely */
+  .yes {
+    left: 50%;
+    transform: translateX(-100%);
+  }
+
+  /* Place NO just to the right of YES */
+  .no {
+    left: 50%;
+    transform: translateX(10%);
+  }
+}
 
 /* Floating hearts */
 .hearts {
