@@ -71,10 +71,10 @@ p {
 .buttons {
   margin-top: 36px;
   position: relative;
-  height: 120px;
+  height: 130px;
 }
 
-/* Buttons */
+/* Buttons base */
 button {
   min-width: 220px;
   height: 56px;
@@ -88,7 +88,7 @@ button {
   position: absolute;
 }
 
-/* YES — fixed forever */
+/* YES — FIXED FOREVER */
 .yes {
   background: linear-gradient(135deg, #6a6bd4, #8a5adf);
   left: 50%;
@@ -96,6 +96,7 @@ button {
   z-index: 2;
 }
 
+/* Visual feedback without movement */
 .yes:hover {
   box-shadow: 0 0 0 4px rgba(106,75,191,0.2);
 }
@@ -108,6 +109,7 @@ button {
   z-index: 1;
 }
 
+/* Hover ONLY for NO (desktop) */
 .no:hover {
   transform: scale(1.05);
 }
@@ -129,7 +131,7 @@ button {
 
 .hidden { display: none; }
 
-/* -------------------- RESPONSIVE -------------------- */
+/* ---------------- RESPONSIVE ---------------- */
 
 /* Small phones */
 @media (max-width: 480px) {
@@ -142,7 +144,7 @@ button {
   p  { font-size: 15px; }
   .emoji { font-size: 34px; }
 
-  .buttons { height: 140px; }
+  .buttons { height: 150px; }
 
   button {
     min-width: 170px;
@@ -152,12 +154,6 @@ button {
 
   .yes { transform: translateX(-100%); }
   .no  { transform: translateX(8%); }
-
-  .yes:hover,
-  .no:hover {
-    transform: none;
-    box-shadow: none;
-  }
 }
 
 /* Tablets */
@@ -167,13 +163,13 @@ button {
   .no  { transform: translateX(6%); }
 }
 
-/* Large screens */
-@media (min-width: 1200px) {
-  .card { max-width: 600px; }
-  button {
-    min-width: 240px;
-    height: 58px;
-    font-size: 17px;
+/* Disable hover effects on touch devices WITHOUT breaking layout */
+@media (hover: none) and (pointer: coarse) {
+  .no:hover {
+    transform: none;
+  }
+  .yes:hover {
+    box-shadow: none;
   }
 }
 </style>
